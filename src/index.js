@@ -16,15 +16,15 @@ export default class GitlabDownload {
     this.token = token;
   }
 
-  download(remote, branch, dest, downloadOptions = {}) {
+  download({remote, dest= './', ref = 'master', downloadOptions = {}}) {
     let options = assign({}, DEFAULT_OPTIONS, downloadOptions);
 
     return new Promise((resolve, reject) => {
       assert(!isBlank(remote), `remote is mandatory`);
-      assert(!isBlank(branch), `branch is mandatory`);
+      assert(!isBlank(ref), `ref is mandatory`);
       assert(!isBlank(dest), `dest is mandatory`);  
       
-      let url = `${this.gitlabUrl}/${remote}/` + tpl.expand({private_token: this.token, ref: branch});
+      let url = `${this.gitlabUrl}/${remote}/` + tpl.expand({private_token: this.token, ref});
       new Download(options)
       .get(normalizeurl(url))
       .dest(dest)
