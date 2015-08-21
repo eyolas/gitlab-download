@@ -1,6 +1,6 @@
 {
   "name": "gitlab-download",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Download and extract a Gitlab repository from node.",
   "main": "lib/index.js",
   "scripts": {
