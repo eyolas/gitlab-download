@@ -1,0 +1,25 @@
+{
+  "name": "gitlab-download",
+  "version": "1.0.0",
+  "description": "Download and extract a Gitlab repository from node.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eyolas/gitlab-download.git"
+  },
+  "keywords": [
+    "download",
+    "gitlab",
+    "repo",
+    "repository"
+  ],
+  "author": "David Touzet <dtouzet@gmail.com>",
+  "license": "WTFPL",
+  "bugs": {
+    "url": "https://github.com/eyolas/gitlab-download/issues"
+  },
+  "homepage": "https://github.com/eyolas/gitlab-download#readme"
+}
