@@ -17,9 +17,9 @@ Usage
 -----
 
 ### instanciate new GitlabDownload(gitlabUrl, token)
-Instanciate gitlab-dowload
+Instanciate gitlab-download
 ```js
-var GitlabDownload = require('gitlab-dowload');
+var GitlabDownload = require('gitlab-download');
 var gitlab = new GitlabDownload('https://mysgitlab.com', 'aze12233zae');
 ```
 
@@ -42,7 +42,7 @@ Returns a GithubDownloader object that emits events on `dir`, `file`, and `end`.
 Example:
 
 ```javascript
-var GitlabDownload = require('gitlab-dowload');
+var GitlabDownload = require('gitlab-download');
 var gitlab = new GitlabDownload('https://mysgitlab.com', 'aze12233zae');
 gitlab.download({remote: 'eyolas/gitlab-download'});
 ```
