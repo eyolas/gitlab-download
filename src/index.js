@@ -5,7 +5,7 @@ import parser from 'uri-template';
 import normalizeurl from 'normalize-url';
 import assign from 'lodash/object/assign';
 
-var tpl = parser.parse('repository/archive.zip{?private_token,ref}')
+var tpl = parser.parse('repository/archive.zip{?private_token,sha}')
 const DEFAULT_OPTIONS = {extract: 'true', mode: '755', strip: 1};
 
 export default class GitlabDownload {
@@ -18,13 +18,14 @@ export default class GitlabDownload {
 
   download({remote, dest= './', ref = 'master', downloadOptions = {}}) {
     let options = assign({}, DEFAULT_OPTIONS, downloadOptions);
+    remote = encodeURIComponent(remote);
 
     return new Promise((resolve, reject) => {
       assert(!isBlank(remote), `remote is mandatory`);
       assert(!isBlank(ref), `ref is mandatory`);
       assert(!isBlank(dest), `dest is mandatory`);  
       
-      let url = `${this.gitlabUrl}/${remote}/` + tpl.expand({private_token: this.token, ref});
+      let url = `${this.gitlabUrl}/api/v4/projects/${remote}/` + tpl.expand({private_token: this.token, sha: ref});
       new Download(options)
       .get(normalizeurl(url))
       .dest(dest)
